@@ -1,0 +1,13 @@
+uuid: e8b07d07-22d0-481c-a749-7e0d959c31a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.specialization
+id: taxonomy_term.specialization.default
+targetEntityType: taxonomy_term
+bundle: specialization
+mode: default
+content: {  }
+hidden:
+  description: true

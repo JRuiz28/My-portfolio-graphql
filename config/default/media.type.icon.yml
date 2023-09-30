@@ -1,0 +1,14 @@
+uuid: 2e4351ee-5b33-440f-b786-2c7d1fba7d49
+langcode: en
+status: true
+dependencies: {  }
+id: icon
+label: Icon
+description: 'This media entity allows you to add an icon.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map:
+  name: name

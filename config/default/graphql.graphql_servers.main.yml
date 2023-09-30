@@ -1,0 +1,16 @@
+uuid: 4a2a8e8b-4ce2-4bf0-bd41-c1d838412ce2
+langcode: en
+status: true
+dependencies: {  }
+name: main
+label: main
+endpoint: /graphql
+debug_flag: 0
+schema: drupal_main
+caching: true
+batching: true
+disable_introspection: false
+query_depth: null
+query_complexity: null
+schema_configuration: {  }
+persisted_queries_settings: {  }

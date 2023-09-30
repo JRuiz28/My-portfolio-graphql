@@ -1,0 +1,14 @@
+uuid: ba447289-9053-4430-9177-4f84e47b049e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.portfolio_exporter
+  module:
+    - user
+id: user_remove_role_action.portfolio_exporter
+label: 'Remove the Portfolio Exporter role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: portfolio_exporter

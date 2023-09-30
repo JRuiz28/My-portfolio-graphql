@@ -1,0 +1,21 @@
+uuid: 98dfeaee-285f-4511-a38c-ffdada780ca0
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - paragraphs
+    - user
+id: user.field_testimonial_three_items
+field_name: field_testimonial_three_items
+entity_type: user
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

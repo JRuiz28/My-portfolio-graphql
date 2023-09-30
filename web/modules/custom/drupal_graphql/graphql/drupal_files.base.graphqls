@@ -1,0 +1,9 @@
+#
+# Files.
+#
+
+type File {
+  id: ID!
+  label: String
+  fileURL: String
+}

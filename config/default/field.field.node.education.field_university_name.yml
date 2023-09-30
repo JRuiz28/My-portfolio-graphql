@@ -1,0 +1,19 @@
+uuid: 7ee29f0d-1af1-4b1f-b84f-425d8e6e8e77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_university_name
+    - node.type.education
+id: node.education.field_university_name
+field_name: field_university_name
+entity_type: node
+bundle: education
+label: 'University/Institute name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

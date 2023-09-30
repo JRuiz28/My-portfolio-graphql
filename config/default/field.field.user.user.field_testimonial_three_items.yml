@@ -1,0 +1,37 @@
+uuid: 93c9e149-f98a-4739-b82e-fbb76d3013ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_testimonial_three_items
+    - paragraphs.paragraphs_type.testimonial
+  module:
+    - entity_reference_revisions
+    - user
+id: user.user.field_testimonial_three_items
+field_name: field_testimonial_three_items
+entity_type: user
+bundle: user
+label: Testimonials
+description: 'Enter the information of the person for whom this testimonial is.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      testimonial: testimonial
+    negate: 0
+    target_bundles_drag_drop:
+      link:
+        weight: 4
+        enabled: false
+      link_icon:
+        weight: 5
+        enabled: false
+      testimonial:
+        weight: 6
+        enabled: true
+field_type: entity_reference_revisions

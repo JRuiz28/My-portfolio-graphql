@@ -1,0 +1,21 @@
+uuid: 7e3c5c07-e0fd-49c9-b64b-342bfd873305
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_time_range
+    - node.type.job
+  module:
+    - datetime_range
+id: node.job.field_time_range
+field_name: field_time_range
+entity_type: node
+bundle: job
+label: Time
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

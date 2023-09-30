@@ -1,0 +1,13 @@
+uuid: 35214f75-b1d5-4468-a8b9-23bb9327c25c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.technology
+id: taxonomy_term.technology.default
+targetEntityType: taxonomy_term
+bundle: technology
+mode: default
+content: {  }
+hidden:
+  description: true

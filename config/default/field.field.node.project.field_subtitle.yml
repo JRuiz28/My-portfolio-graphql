@@ -1,0 +1,19 @@
+uuid: eab0499c-e385-4374-ac6a-6ff56ed953f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.project
+id: node.project.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: project
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

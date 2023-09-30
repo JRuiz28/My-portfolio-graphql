@@ -1,0 +1,36 @@
+uuid: 95e4b874-ec1c-4c5c-a4e1-32f37c0f6e54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_address
+    - field.field.user.user.field_description
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_name
+    - field.field.user.user.field_phone_number
+    - field.field.user.user.field_resume
+    - field.field.user.user.field_testimonial_three_items
+    - field.field.user.user.user_picture
+  module:
+    - user
+_core:
+  default_config_hash: mZLyuWM9CQx2ZJVqFGSbzgFnHzudVbHBYmdU256A5Wk
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  member_for:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_address: true
+  field_description: true
+  field_last_name: true
+  field_name: true
+  field_phone_number: true
+  field_resume: true
+  field_testimonial_three_items: true
+  user_picture: true

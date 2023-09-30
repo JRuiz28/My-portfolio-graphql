@@ -1,0 +1,13 @@
+#
+# Taxonomy term
+#
+
+type TaxonomyTerm {
+  id: ID!
+  label: String!
+  children: [TaxonomyTerm]
+}
+
+type TaxonomyTermParents {
+  taxonomyTerms: [TaxonomyTerm]
+}

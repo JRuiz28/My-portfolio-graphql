@@ -1,0 +1,21 @@
+interface UserInterface {
+  email: String!
+  username: String!
+}
+
+type User implements UserInterface {
+  photo: File
+  resume: File
+  name: String!
+  phone: String
+  email: String!
+  jobs: [NodeJob]
+  summary: String
+  aboutme: String
+  lastname: String!
+  username: String!
+  projects: [NodeProject]
+  location: [TaxonomyTerm]
+  educations: [NodeEducation]
+  testimonial: [ParagraphTestimonial]
+}

@@ -1,0 +1,28 @@
+uuid: 28e0cfe1-5d21-4a0e-bf12-94dbc4aac994
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_description
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - text
+    - user
+id: user.user.field_description
+field_name: field_description
+entity_type: user
+bundle: user
+label: 'About me'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_with_summary

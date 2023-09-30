@@ -1,0 +1,31 @@
+uuid: ec5c42e4-e32a-4270-b795-c1ee828bd830
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cta_two_items
+    - node.type.project
+    - paragraphs.paragraphs_type.link
+  module:
+    - entity_reference_revisions
+id: node.project.field_cta_two_items
+field_name: field_cta_two_items
+entity_type: node
+bundle: project
+label: Links
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      link: link
+    negate: 0
+    target_bundles_drag_drop:
+      link:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

@@ -1,0 +1,21 @@
+#
+# Paragraphs.
+#
+
+interface ParagraphInterface {
+  id: ID!
+}
+
+type ParagraphTestimonial implements ParagraphInterface {
+  id: ID!
+  photo: File
+  name: String!
+  subtitle: String
+  testimonial: String!
+}
+
+type ParagraphLink implements ParagraphInterface {
+  id: ID!
+  linkURL: String
+  linkTitle: String
+}

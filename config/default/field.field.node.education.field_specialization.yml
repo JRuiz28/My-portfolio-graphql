@@ -1,0 +1,29 @@
+uuid: 5b579ce6-3183-4c36-b0d4-431ccbf80bac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_specialization
+    - node.type.education
+    - taxonomy.vocabulary.specialization
+id: node.education.field_specialization
+field_name: field_specialization
+entity_type: node
+bundle: education
+label: Specialization
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      specialization: specialization
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: specialization
+field_type: entity_reference

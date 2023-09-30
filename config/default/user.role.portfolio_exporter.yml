@@ -1,0 +1,27 @@
+uuid: a2e4e8ab-039b-4418-98bb-bfb1d404b327
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.education
+    - node.type.job
+    - node.type.project
+  module:
+    - node
+    - toolbar_menu_clean
+id: portfolio_exporter
+label: 'Portfolio Exporter'
+weight: 4
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'create education content'
+  - 'create job content'
+  - 'create project content'
+  - 'delete own education content'
+  - 'delete own job content'
+  - 'delete own project content'
+  - 'edit own education content'
+  - 'edit own job content'
+  - 'edit own project content'
+  - 'show administration menu in the toolbar'

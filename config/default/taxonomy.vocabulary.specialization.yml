@@ -1,0 +1,8 @@
+uuid: 87c7fe30-2168-4a65-816f-6872f8782a68
+langcode: en
+status: true
+dependencies: {  }
+name: Specialization
+vid: specialization
+description: ''
+weight: 0

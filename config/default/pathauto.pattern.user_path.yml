@@ -1,0 +1,14 @@
+uuid: b5915458-8dab-4148-9624-093b31126157
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user_path
+label: 'User path'
+type: 'canonical_entities:user'
+pattern: '/[user:account-name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

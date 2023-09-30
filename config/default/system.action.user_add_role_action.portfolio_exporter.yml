@@ -1,0 +1,14 @@
+uuid: 3ae5e53e-5fbe-4a0c-bcc7-9bc23e5771c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.portfolio_exporter
+  module:
+    - user
+id: user_add_role_action.portfolio_exporter
+label: 'Add the Portfolio Exporter role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: portfolio_exporter

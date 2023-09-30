@@ -1,0 +1,8 @@
+name: Drupal GraphQL
+type: module
+description: Provides functionality to query site through GraphQL.
+package: Custom modules
+core_version_requirement: ^9 || ^10
+
+dependencies:
+  - graphql:graphql

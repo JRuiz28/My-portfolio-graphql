@@ -1,0 +1,34 @@
+#
+# Nodes.
+#
+
+interface NodeInterface {
+  title: String!
+}
+
+type NodeJob implements NodeInterface {
+  currently: Boolean
+  title: String!
+  endDate: String
+  startDate: String
+  companyName: String!
+  description: String!
+}
+
+type NodeEducation implements NodeInterface {
+  title: String!
+  endDate: String
+  startDate: String
+  description: String
+  institution: String!
+  specialization: [TaxonomyTerm]
+}
+
+type NodeProject implements NodeInterface {
+  image: File
+  title: String!
+  subtitle: String
+  description: String!
+  links: [ParagraphLink!]
+  technology: [TaxonomyTerm]
+}

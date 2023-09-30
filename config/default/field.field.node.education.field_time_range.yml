@@ -1,0 +1,21 @@
+uuid: f8f89b95-e79d-49a0-bbab-e85608a25a91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_time_range
+    - node.type.education
+  module:
+    - datetime_range
+id: node.education.field_time_range
+field_name: field_time_range
+entity_type: node
+bundle: education
+label: Time
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

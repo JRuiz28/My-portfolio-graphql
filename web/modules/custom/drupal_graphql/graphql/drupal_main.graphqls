@@ -1,0 +1,13 @@
+# Schema.
+
+schema {
+  query: Query
+}
+
+#
+# Query.
+#
+
+type Query {
+  routeUser(username: String!): UserInterface
+}
