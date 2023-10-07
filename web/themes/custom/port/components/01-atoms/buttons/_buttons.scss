@@ -1,0 +1,256 @@
+// Mixin to define colors for one or more schemes.
+// Simply pass the color scheme to the mixin to get the colors defined in the map.
+// e.g. @include buttonColors(default) will get all of the colors defined in the "default" section.
+@mixin button-colors(
+  $bg: clr(blue-light),
+  $text: clr(white),
+  $bgHover: transparent,
+  $textHover: clr(blue-light),
+  $bgDisabled: clr(gray-light),
+  $textDisabled: clr(white),
+  $icon: clr(white),
+  $iconHover: clr(blue-light),
+  $iconDisabled: clr(white)
+) {
+  color: $text;
+  min-height: $space-40;
+  background-color: $bg;
+
+  &:hover {
+    color: $textHover;
+    background-color: $bgHover;
+
+    .button__icon {
+      fill: $iconHover;
+      stroke: $iconHover;
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    color: $textDisabled;
+    background-color: $bgDisabled;
+
+    .button__icon {
+      fill: $iconDisabled;
+      stroke: $iconDisabled;
+    }
+  }
+
+  .button__icon {
+    fill: $icon;
+    stroke: $icon;
+    pointer-events: none;
+  }
+}
+
+@mixin button-border(
+  $border: clr(blue-light),
+  $borderHover: clr(blue-light),
+  $borderDisabled: clr(gray-light)
+) {
+  border: $space-2 solid $border;
+  padding: $space-12 $space;
+
+  &:hover {
+    border: $space-2 solid $borderHover;
+  }
+
+  &:disabled,
+  &[disabled] {
+    border: $space-2 solid $borderDisabled;
+  }
+}
+
+// The button-base mixin contains styles that apply to all buttons
+// regardless of color or size.
+@mixin button-base {
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+  text-align: center;
+  align-items: center;
+  display: inline-flex;
+  font-size: px2rem(14);
+  text-decoration: none;
+  justify-content: center;
+  padding: $space-12 $space;
+
+  .button__icon {
+    display: flex;
+    width: 0.7rem;
+    height: 0.7rem;
+    align-items: center;
+    margin-left: $space-8;
+  }
+}
+
+// The download-button mixin contains styles that apply to all download buttons.
+@mixin download-button(
+  $bg: clr(blue-light),
+  $text: clr(white),
+  $icon: clr(white)
+) {
+  @include button-border(transparent, transparent, transparent);
+  @include button-colors(
+    $bg,
+    $text,
+    $bg,
+    $text,
+    clr(gray-light),
+    clr(white),
+    $icon: $icon,
+    $iconHover: $icon
+  );
+
+  & + .button__dropdown-content {
+    width: 100%;
+    z-index: 98;
+    top: $space-4;
+    display: none;
+    overflow: auto;
+    position: absolute;
+    border-radius: $space;
+    padding-top: $space-32;
+    border: $space-2 solid $bg;
+    background-color: clr(white);
+
+    a {
+      display: block;
+      font-weight: 700;
+      color: clr(gray);
+      font-size: px2rem(12);
+      text-decoration: none;
+      padding: $space-12 $space-8;
+      line-height: 1.2;
+      word-break: break-all;
+      text-align: initial;
+
+      &:hover {
+        background-color: clr(gray-lightest);
+      }
+    }
+  }
+
+  .button__icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    stroke-width: 0;
+    margin-left: $space;
+  }
+}
+
+.button {
+  @include button-base;
+  @include button-border;
+  @include button-colors;
+
+  &--outline-black {
+    @include button-border(transparent, clr(blue-dark));
+    @include button-colors(
+      clr(blue-dark),
+      clr(white),
+      transparent,
+      clr(blue-dark),
+      transparent,
+      clr(gray-light),
+      $icon: clr(white),
+      $iconDisabled: clr(gray-light),
+      $iconHover: clr(blue-dark)
+    );
+  }
+
+  &--outline-gray {
+    @include button-border(clr(gray), clr(gray));
+    @include button-colors(
+      transparent,
+      clr(gray),
+      clr(gray),
+      clr(white),
+      transparent,
+      clr(gray-light),
+      $icon: clr(gray),
+      $iconHover: clr(white),
+      $iconDisabled: clr(gray-light)
+    );
+  }
+
+  &--link {
+    @include button-border(transparent, transparent, transparent);
+    @include button-colors(
+      transparent,
+      clr(blue),
+      transparent,
+      clr(purple),
+      transparent,
+      clr(gray-light),
+      $icon: clr(blue),
+      $iconHover: clr(purple),
+      $iconDisabled: clr(gray-light)
+    );
+
+    padding: 0;
+
+    &:hover,
+    &:disabled,
+    &[disabled] {
+      text-decoration: underline;
+    }
+  }
+
+  &--link-black {
+    @include button-border(transparent, transparent, transparent);
+    @include button-colors(
+      transparent,
+      clr(blue-dark),
+      transparent,
+      clr(blue-light),
+      transparent,
+      clr(gray-light),
+      $icon: clr(blue-dark),
+      $iconHover: clr(blue-light),
+      $iconDisabled: clr(gray-light)
+    );
+
+    padding: 0;
+
+    &:hover,
+    &:disabled,
+    &[disabled] {
+      text-decoration: underline;
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+    width: max-content;
+
+    &.show {
+      .button {
+        z-index: 99;
+        position: relative;
+      }
+
+      .button__dropdown-content {
+        display: block;
+      }
+    }
+  }
+
+  &--download {
+    @include download-button;
+  }
+
+  &--download-black {
+    @include download-button(clr(gray));
+  }
+
+}
+
+// CTA's in the wysiwyg editor.
+.text-long {
+  .button--cta {
+    margin: 0.5rem 0;
+    color: clr(white);
+  }
+}

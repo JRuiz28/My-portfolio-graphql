@@ -1,0 +1,9 @@
+button_icon: 'download'
+button_content: 'Download'
+button_modifiers:
+  - 'download'
+button_download_options:
+  - extension: 'PDF'
+    url: ''
+  - extension: 'PPTX'
+    url: ''

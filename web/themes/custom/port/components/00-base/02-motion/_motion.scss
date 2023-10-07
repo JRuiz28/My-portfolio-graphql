@@ -1,0 +1,118 @@
+/* Mixin - Transition */
+$duration-base: 0.3s;
+$timing-function-base: ease-in-out;
+
+@mixin transition(
+  $transition-property: all,
+  $transition-duration: $duration-base,
+  $transition-timing-function: $timing-function-base
+) {
+  transition: $transition-property $transition-duration
+    $transition-timing-function;
+}
+
+// Demo UI
+.motion {
+  padding: 0 1rem;
+}
+
+.motion__grid {
+  @media (min-width: 920px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.motion__grid-item {
+  @media (min-width: 920px) {
+    width: 49%;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+}
+
+.demo-motion {
+  padding: 3rem;
+  cursor: pointer;
+  border-radius: 2px;
+  text-align: center;
+  background-color: clr(gray-light);
+
+  &::before {
+    display: block;
+    content: '#{$duration-base}';
+  }
+
+  &::after {
+    content: '#{$timing-function-base}';
+  }
+
+  span {
+    display: block;
+    margin: 0.25rem;
+  }
+}
+
+.demo-motion--fade {
+  @include transition;
+
+  &:hover {
+    color: clr(gray-lightest);
+    background-color: clr(gray);
+  }
+}
+
+.demo-motion--slide-up {
+  @include transition(transform, 0.4s, ease-in);
+
+  &::before {
+    display: block;
+    content: '0.4s';
+  }
+
+  &::after {
+    content: 'ease-in';
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+
+.demo-motion--slide-down {
+  @include transition(transform, 0.2s, linear);
+
+  &::before {
+    display: block;
+    content: '0.2s';
+  }
+
+  &::after {
+    content: 'linear';
+  }
+
+  &:hover {
+    transform: translateY(10px);
+  }
+}
+
+.demo-motion--expand {
+  @include transition(transform, 0.3s, cubic-bezier(0.17, 0.67, 0.83, 0.67));
+
+  &::before {
+    display: block;
+    content: '0.3s';
+  }
+
+  &::after {
+    content: 'cubic-bezier';
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

@@ -1,0 +1,60 @@
+@mixin image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+img,
+picture {
+  @include image;
+}
+
+figure {
+  margin: 0; /* override normalize */
+}
+
+.figure__caption {
+  font-style: italic;
+}
+
+// Image in the wysiwyg editor.
+.text-long {
+  .align-center img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .align-left {
+    float: none;
+
+    @include small {
+      float: left;
+    }
+
+    img {
+      margin-bottom: $space;
+
+      @include small {
+        margin-bottom: 0;
+        margin-right: $space;
+      }
+    }
+  }
+
+  .align-right {
+    float: none;
+
+    @include small {
+      float: right;
+    }
+
+    img {
+      margin-bottom: $space;
+
+      @include small {
+        margin-bottom: 0;
+        margin-left: $space;
+      }
+    }
+  }
+}

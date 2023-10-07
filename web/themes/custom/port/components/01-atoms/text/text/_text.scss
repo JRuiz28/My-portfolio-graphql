@@ -1,0 +1,59 @@
+/* Create a mixin for paragraph styles that can be implemented
+ * in components with other classnames.
+*/
+.paragraph {
+  margin: 0 0 1rem;
+
+  a {
+    color: clr(blue-light);
+
+    &:hover {
+      color: clr(purple);
+    }
+  }
+}
+
+.blockquote {
+  font-size: px2rem(14);
+  margin: 0 0 1rem;
+  color: clr(gray);
+  display: flex;
+
+  &::before {
+    content: open-quote;
+  }
+
+  &::after {
+    content: close-quote;
+  }
+}
+
+.hr {
+  border-style: solid;
+  border-width: 1px 0 0;
+  color: currentColor;
+}
+
+/* TODO: BEM selectors should be applied to wysiwyg-created content */
+
+.text-long {
+  p {
+    @extend .paragraph;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  blockquote {
+    @extend .blockquote;
+  }
+
+  hr {
+    @extend .hr;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}

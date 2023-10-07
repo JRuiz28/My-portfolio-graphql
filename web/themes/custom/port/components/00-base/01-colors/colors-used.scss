@@ -1,0 +1,89 @@
+@use 'colors-vars';
+
+// Color Usage variables - use these (via the `clr` function below)
+// rather than color variables directly.
+$defaultColors: (
+  text: colors-vars.$blue-dark,
+  text-inverse: colors-vars.$white,
+  'white': colors-vars.$white,
+  gray-lightest: colors-vars.$gray-lightest,
+  gray-lighter: colors-vars.$gray-lighter,
+  gray-light: colors-vars.$gray-light,
+  'gray': colors-vars.$gray,
+  'black': colors-vars.$black,
+  'purple': colors-vars.$purple,
+  purple-light: colors-vars.$purple-light,
+  purple-dark: colors-vars.$purple-dark,
+  green-light: colors-vars.$green-light,
+  'green': colors-vars.$green,
+  green-dark: colors-vars.$green-dark,
+  'orange': colors-vars.$orange,
+  orange-dark: colors-vars.$orange-dark,
+  pink-light: colors-vars.$pink-light,
+  red-light: colors-vars.$red-light,
+  'red': colors-vars.$red,
+  red-dark: colors-vars.$red-dark,
+  magenta-light: colors-vars.$magenta-light,
+  'magenta': colors-vars.$magenta,
+  magenta-dark: colors-vars.$magenta-dark,
+  blue-lightest: colors-vars.$blue-lightest,
+  blue-lighter: colors-vars.$blue-lighter,
+  blue-light: colors-vars.$blue-light,
+  'blue': colors-vars.$blue,
+  blue-dark: colors-vars.$blue-dark,
+  blue-gray: colors-vars.$blue-gray,
+  dark-blue-gray: colors-vars.$dark-blue-gray,
+  yellow-lighter: colors-vars.$yellow-lighter,
+  yellow-light: colors-vars.$yellow-light,
+  'yellow': colors-vars.$yellow,
+  yellow-dark: colors-vars.$yellow-dark,
+  warning: colors-vars.$yellow-status,
+  error: colors-vars.$red-status,
+  message: colors-vars.$green-status,
+);
+
+///////////
+// Usage //
+///////////
+// This color function makes it easy for you to call a color by it's functional
+// name anywhere you need.
+// E.g. to use the `text` color, you type: `color: clr(text);`
+//
+// How it works:
+// This function works in conjunction with the dynamic css custom properties
+// declarations below. The item called in the function is prefixed with
+// `var(--c-` to call the custom property for that color.
+// E.g. `color: clr(text);` will return `color: var(--c-text);`
+// Note: (The `--c-` is added via the `@each` loops below)
+@function clr($colorChoice) {
+  @return var(--c-#{$colorChoice});
+}
+
+// Create CSS custom properties
+// This is what powers the built-in OS light/dark mode switching.
+// For each color variable above (e.g. `text` and `background`) a css custom
+// property will be created. (e.g. `--c-text:` and `--c-background:`).
+//
+// The first `@each` below will create a custom property for each item in the
+// `$defaultColors` map. So put all of your default colors there.
+//
+// The `prefers-color-scheme: dark` media query below will then create custom
+// properties for each of the colors in the `$darkColors` map only if the
+// browser supports that feature. If there is an exact match (e.g. `text`) in
+// both maps, the one from `$darkColors` will be used on machines that have
+// opted to use the 'dark mode' on their OS.
+:root {
+  // Create custom properties for default colors
+  @each $name, $color in $defaultColors {
+    --c-#{$name}: #{$color};
+  }
+
+  // Use the default color scheme for the "Default Theme" section of the
+  // component library regardless of OS setting.
+  // This is required to show the correct colors in the component library at all times
+  [data-theme='default'] {
+    @each $name, $color in $defaultColors {
+      --c-#{$name}: #{$color};
+    }
+  }
+}

@@ -1,0 +1,94 @@
+/*
+ * General Mixins (put specific ones in component files where applicable)
+*/
+
+/// Function - px to rem.
+@function px2rem($pixels) {
+  @if unitless($pixels) {
+    // @return #{$pixels / 16}rem;
+    @return calc($pixels / 16 * 1rem);
+  }
+
+  @else {
+    @return calc($pixels / 16px * 1rem);
+  }
+}
+
+/* Mixin - Clearfix.
+ * Adds clearfix based on http://bourbon.io/docs/#clearfix
+ * use example =   @include cleafix
+*/
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+@mixin body-copy {
+  font-family: $font-body;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+$outer-container-break: $small;
+
+/// Mixin - Wrapper.
+/// Outer container mixin for large screens.
+@mixin wrapper(
+  $container-max-width: px2rem(1224),
+  $outer-container-break: $small,
+  $v-margin: 0,
+  $v-padding: 0,
+  $h-padding: $space,
+  $h-padding-large: $h-padding
+) {
+  max-width: #{$container-max-width};
+  width: 100%;
+  margin: #{$v-margin} auto;
+  padding: #{$v-padding} #{$h-padding};
+
+  @include breakpoint($outer-container-break) {
+    padding: #{$v-padding} #{$h-padding-large};
+  }
+
+  @include breakpoint($container-max-width) {
+    padding-left: calc(
+      #{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2))
+    );
+    padding-right: calc(
+      #{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2))
+    );
+  }
+}
+
+/// Mixin - List Reset.
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/// Mixin - Visually hidden content.
+@mixin visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+  background-color: clr(white);
+  color: clr(black);
+}
+
+/* Mixin - Wrap break word. */
+@mixin break-word {
+  hyphens: auto;
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+

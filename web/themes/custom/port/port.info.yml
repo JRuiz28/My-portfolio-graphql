@@ -1,0 +1,28 @@
+name: port
+type: theme
+description: Theme using Storybook and component-driven development
+base theme: stable9
+core: 8.x
+core_version_requirement: ^9 || ^10
+libraries:
+  - port/global
+ckeditor_stylesheets:
+  - dist/style.css
+regions:
+  header_top: Header Top
+  header: Header
+  content: Content
+  footer: Footer
+logo: images/logo.png
+components:
+  namespaces:
+    base:
+      - components/00-base
+    atoms:
+      - components/01-atoms
+    molecules:
+      - components/02-molecules
+    organisms:
+      - components/03-organisms
+    templates:
+      - components/04-templates

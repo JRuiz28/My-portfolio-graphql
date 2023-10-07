@@ -1,0 +1,43 @@
+// Color variables - it is better to use the colors in
+// components/00-base/01-colors/_01-colors-used.scss rather than
+// these colors directly.
+
+// Grayscale
+$white: white;
+$gray-lightest: #f5f5f5;
+$gray-lighter: #bbb;
+$gray-light: #aba9ad;
+$gray: #4f4f4f;
+$black: black;
+
+$purple-light: #b100cd;
+$purple: #8a00c2;
+$purple-dark: #4c00b0;
+$green-light: #00CC00;
+$green: #008000;
+$green-dark: #004000;
+$orange: #f98d29;
+$orange-dark: #de6c02;
+$pink-light: #e8bcf0;
+$red-light: #FF7276;
+$red: #ff0000;
+$red-dark: #8b0000;
+$magenta-light: #f3c6dd;
+$magenta: #ff00ff;
+$magenta-dark: #800080;
+$blue-lightest: #d0efff;
+$blue-lighter: #2a9df4;
+$blue-light: #187bcd;
+$blue: #1167b1;
+$blue-dark: #03254c;
+$blue-gray: #697895;
+$dark-blue-gray: #42526D;
+$yellow-lighter: #f9efd0;
+$yellow-light: #feb;
+$yellow: #ffcb30;
+$yellow-dark: #d6a000;
+
+// Status
+$yellow-status: $yellow;
+$red-status: $red-light;
+$green-status: $green-light;

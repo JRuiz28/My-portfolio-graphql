@@ -1,0 +1,98 @@
+{#
+/**
+ * Available variables:
+ * - button_type - the button type (link or button)
+ * - button_url - URL where the button points to.
+ * - button_content - the content of the button (typically text)
+ * - button_title_attribute - the button title (for accessibility)
+ * - button_aria_label_attribute - the button area-label (for accessibility)
+ * - button_modifiers - array of modifiers to add to the base classname
+ * - button_blockname - blockname prepended to the base classname
+ *
+ * Available blocks:
+ * - button_content_block - used to replace the content of the button with something
+ *   other than text for example: to insert an icon
+ */
+#}
+
+{{ attach_library('port/buttons') }}
+
+{% set button_base_class = button_base_class|default('button') %}
+
+{% set button_element = button_type == 'link' ? 'a' : 'button' %}
+
+{% set additional_attributes = {
+  class: bem(button_base_class, button_modifiers, button_blockname),
+} %}
+
+{% if button_download_options and button_download_options|length == 1 %}
+  {% set file = button_download_options|first %}
+  {% set button_element = 'a' %}
+  {% set button_url = file.url %}
+  {% set aria_label_attribute = 'Download ' ~ file.extension ~ ' ' ~ file.label %}
+  {% set additional_attributes = additional_attributes|merge({
+    'title': aria_label_attribute,
+    'aria-label': aria_label_attribute,
+  }) %}
+  {% if file.extension in ['pdf', 'png', 'jpg', 'jpeg'] %}
+    {% set additional_attributes = additional_attributes|merge({'target': '_blank'}) %}
+  {% endif %}
+{% endif %}
+
+{% if button_url %}
+  {% set additional_attributes = additional_attributes|merge({
+    'role': 'button',
+    'href': button_url,
+  }) %}
+{% endif %}
+
+{% if button_aria_hidden %}
+  {% set additional_attributes = additional_attributes|merge({'aria-hidden': 'true'}) %}
+{% endif %}
+
+{% if button_type == 'link' and button_aria_label_attribute is not null %}
+  {% set additional_attributes = additional_attributes|merge({'aria-label': button_aria_label_attribute}) %}
+{% endif %}
+
+{% if button_download_options %}
+  <div {{ bem('dropdown', [], button_base_class) }}>
+  {% endif %}
+
+  <{{button_element}} {{ add_attributes(additional_attributes) }}>
+    {% block button_content %}
+      {{ button_content }}
+    {% endblock %}
+    {% if button_icon %}
+      {% include "@atoms/images/icons/_icon.twig" with {
+      icon_base_class: "icon",
+      icon_blockname: button_base_class,
+      icon_name: button_icon,
+    } %}
+    {% endif %}
+  </{{button_element}}>
+
+  {% if button_element != 'a' and button_download_options %}
+    <div {{ bem('dropdown-content', [], button_base_class) }}>
+      {% for option in button_download_options %}
+        {% set doc_label = option.extension|upper ~ ' - ' ~ option.label %}
+        {% set aria_label_attribute = 'Download ' ~ option.extension ~ ' ' ~ option.label ~ ' ' ~ button_aria_label_attribute %}
+        {% set link_attributes = {
+          'title': aria_label_attribute,
+          'aria-label': aria_label_attribute,
+        } %}
+        {% if option.extension in ['pdf', 'png', 'jpg', 'jpeg'] %}
+          {% set link_attributes = link_attributes|merge({'target': '_blank'}) %}
+        {% endif %}
+
+        {% include "@atoms/links/link/link.twig" with {
+          "link_url": option.url,
+          "link_content": doc_label,
+          "link_attributes": link_attributes,
+        } %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if button_download_options %}
+  </div>
+{% endif %}

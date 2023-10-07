@@ -1,0 +1,15 @@
+@mixin link {
+  color: clr(blue);
+
+  &:hover {
+    color: clr(blue-lighter);
+  }
+}
+
+.link {
+  @include link;
+}
+
+a[href^='mailto:'] {
+  @include break-word;
+}

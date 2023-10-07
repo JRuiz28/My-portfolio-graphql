@@ -1,0 +1,4 @@
+button_modifiers:
+  - 'outline-gray'
+button_icon: 'arrow'
+button_content: 'Default Button'

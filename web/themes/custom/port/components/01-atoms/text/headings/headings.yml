@@ -1,0 +1,31 @@
+- heading_level: h1
+  heading: This is an H1 Example with a link
+  heading_url: https://emulsify.info/
+- heading_level: h2
+  heading: This is an H2 Example with a link
+  heading_url: https://emulsify.info/
+- heading_level: h3
+  heading: This is an H3 Example with a link
+  heading_url: https://emulsify.info/
+- heading_level: h4
+  heading: This is an H4 Example with a link
+  heading_url: https://emulsify.info/
+- heading_level: h5
+  heading: This is an H5 Example with a link
+  heading_url: https://emulsify.info/
+- heading_level: h6
+  heading: This is an H6 Example with a link
+  heading_url: https://emulsify.info/
+- heading_level: h1
+  heading: This is an H1 Example
+- heading_level: h2
+  heading: This is an H2 Example
+- heading_level: h3
+  heading: This is an H3 Example
+- heading_level: h4
+  heading: This is an H4 Example
+- heading_level: h5
+  heading: This is an H5 Example
+- heading_level: h6
+  heading: This is an H6 Example
+
