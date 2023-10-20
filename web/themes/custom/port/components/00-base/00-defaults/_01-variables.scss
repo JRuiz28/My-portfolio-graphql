@@ -7,17 +7,15 @@
 */
 
 // Google fonts.
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto+Slab&family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Source+Code+Pro&family=Young+Serif&display=swap');
 
 // Fonts
 $font-heading: 'Young Serif', sans-serif;
 $font-body: 'Roboto Slab', sans-serif;
-$font-console: 'PT Sans', sans-serif;
+$font-console: 'Source Code Pro', monospace;
 
 // Spacing
 $space: 1rem;
-
-// Times
 $space-20: calc($space * 1.25);
 $space-24: calc($space * 1.5);
 $space-32: calc($space * 2);
@@ -28,16 +26,11 @@ $space-64: calc($space * 4);
 $space-72: calc($space * 4.5);
 $space-80: calc($space * 5);
 
-// Divided
 $space-12: calc($space * 0.75);
 $space-8: calc($space / 2);
 $space-4: calc($space / 4);
 $space-2: calc($space / 8);
 
-/*
- * Use this on the outer wrapper of page-level elements.
- * It ensures consistent spacing between elements on the page.
- */
 @mixin space-stack-page {
   margin-bottom: $space-32;
 }

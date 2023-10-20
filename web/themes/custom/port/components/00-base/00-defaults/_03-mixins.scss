@@ -5,12 +5,10 @@
 /// Function - px to rem.
 @function px2rem($pixels) {
   @if unitless($pixels) {
-    // @return #{$pixels / 16}rem;
-    @return calc($pixels / 16 * 1rem);
+    @return calc($pixels/16 * 1rem);
   }
-
   @else {
-    @return calc($pixels / 16px * 1rem);
+    @return calc($pixels/16px * 1rem);
   }
 }
 
@@ -92,3 +90,13 @@ $outer-container-break: $small;
   overflow-wrap: break-word;
 }
 
+/* Mixin - External links. */
+@mixin external-link {
+  &::after {
+    content: '';
+    display: block;
+    width: px2rem(12);
+    height: px2rem(12);
+    margin-left: $space-8;
+  }
+}

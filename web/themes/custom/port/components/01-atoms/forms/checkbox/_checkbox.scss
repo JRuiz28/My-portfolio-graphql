@@ -1,0 +1,95 @@
+.form-item--checkboxes,
+.form-item--checkbox__item {
+  @include list-reset;
+
+  width: inherit;
+}
+.form-item--checkbox {
+  border: none;
+
+  legend {
+    font-weight: 900;
+    color: clr(black);
+    font-size: px2rem(14);
+    margin-bottom: $space-8;
+  }
+}
+
+.form-item--checkbox__item {
+  margin-bottom: $space-24;
+
+    label {
+      cursor: pointer;
+    }
+}
+
+.form-item--checkbox__input {
+  display: none;
+
+  & + .form-item__label {
+    padding: 0;
+    display: flex;
+    cursor: pointer;
+    font-weight: 400;
+    position: relative;
+    color: clr(black);
+    font-size: px2rem(14);
+  }
+
+  // Box.
+  & + .form-item__label::before {
+    content: '';
+    box-shadow: none;
+    width: px2rem(20);
+    height: px2rem(20);
+    border-radius: 4px;
+    display: inline-table;
+    margin-right: $space-12;
+    vertical-align: text-top;
+    border: solid 1px clr(purple-light);
+  }
+
+  // Box checked.
+  &:checked + .form-item__label::before {
+    background: clr(purple-light);
+    border-color: clr(purple-dark);
+  }
+
+  // Disabled state label.
+  &:disabled + .form-item__label {
+    cursor: auto;
+    color: clr(gray-light);
+  }
+
+  // Disabled box.
+  &:disabled + .form-item__label::before {
+    box-shadow: none;
+    background: clr(gray-light);
+    border-color: clr(gray-light);
+  }
+
+  // Checkmark.
+  &:checked + .form-item__label::after {
+    content: '';
+    top: px2rem(9);
+    left: px2rem(5);
+    width: px2rem(2);
+    height: px2rem(2);
+    position: absolute;
+    background: white;
+    box-shadow:
+      2px 0 0 white,
+      4px 0 0 white,
+      4px -2px 0 white,
+      4px -4px 0 white,
+      4px -6px 0 white,
+      4px -8px 0 white;
+    transform: rotate(45deg);
+  }
+
+  // Link.
+  & + .form-item__label a {
+    color: clr(purple-dark);
+    margin-left: $space-4;
+  }
+}

@@ -12,4 +12,4 @@
  * template directories (ie 'blocks.theme.inc' should modify templates in
  * 'templates/blocks'.)
  */
-include 'includes/blocks.theme.inc';
+include 'includes/page.theme.inc';

@@ -1,0 +1,19 @@
+{% set layout_modifiers = [] %}
+
+{% set main_base_class = main_base_class|default('main') %}
+{% set main_modifiers = [] %}
+
+{% set main_content_base_class = main_content_base_class|default('main-content') %}
+{% set main_content_modifiers = [] %}
+
+<div {{ bem('layout-container', layout_modifiers) }}>
+  {% block page_header %}
+    {% include "@organisms/site/site-header/site-header.twig" %}
+  {% endblock %}
+  {% block page_system %}{% endblock %}
+  <div {{ bem(main_base_class, main_modifiers, main_blockname) }}>
+    {# link is in html.html.twig #}
+    <main id="main-content" {{ bem(main_content_base_class, main_content_modifiers, main_content_blockname) }}> {% block page_content %}{% endblock %}
+      </main>
+    </div>
+  </div>

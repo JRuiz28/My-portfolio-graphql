@@ -1,0 +1,18 @@
+{% set section_layout_base_class = 'layout' %}
+
+{% set section_layout_modifiers = section_layout_modifiers|merge(['twocol']) %}
+
+<div {{ bem(section_layout_base_class, section_layout_modifiers) }}>
+  <div {{ bem('content', [], section_layout_base_class) }}>
+    <div {{ bem('column', ['first'], section_layout_base_class) }}>
+      {% include '@templates/placeholder/place-holder.twig' with {
+        'place_holder': 'Content First',
+      } %}
+    </div>
+    <div {{ bem('column', ['second'], section_layout_base_class) }}>
+      {% include '@templates/placeholder/place-holder.twig' with {
+        'place_holder': 'Content Second',
+      } %}
+    </div>
+  </div>
+</div>

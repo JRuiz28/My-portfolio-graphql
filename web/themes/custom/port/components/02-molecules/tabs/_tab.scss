@@ -1,0 +1,22 @@
+.tabs__link,
+.tabs__link--local-tasks {
+  @include heading-sm;
+
+  display: block;
+  margin: $space-2;
+  border-radius: $space-40;
+  text-decoration: none;
+  color: clr(black);
+  background-color: none;
+
+  @include large {
+    display: flex;
+  }
+
+  &:hover,
+  &.is-active {
+    text-decoration: none;
+    color: clr(purple);
+    background-color: clr(pink-light);
+  }
+}

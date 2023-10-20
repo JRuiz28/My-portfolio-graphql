@@ -1,0 +1,7 @@
+inline_menu_items:
+  - title: 'Number 1'
+    url: '#'
+  - title: 'Number 2'
+    url: '#'
+  - title: 'Number 3'
+    url: '#'

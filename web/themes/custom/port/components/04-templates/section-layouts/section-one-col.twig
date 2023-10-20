@@ -1,0 +1,11 @@
+{% set section_layout_base_class = 'layout' %}
+
+{% set section_layout_modifiers = section_layout_modifiers|merge(['onecol']) %}
+
+<div {{ bem(section_layout_base_class, section_layout_modifiers) }}>
+  <div {{ bem('content', [], section_layout_base_class) }}>
+    {% include '@templates/placeholder/place-holder.twig' with {
+      'place_holder': section_layout_placeholder_content|default('Content'),
+    } %}
+  </div>
+</div>

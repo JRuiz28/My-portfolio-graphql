@@ -1,0 +1,22 @@
+uuid: a0d9e6ba-3af3-4604-8227-9ec8ebca17d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - port
+_core:
+  default_config_hash: y9X3xgCsO59pQyzNLzY1D3SDJJxCHILLWkpPnmuTJ2E
+id: port_breadcrumbs
+theme: port
+region: header_top
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

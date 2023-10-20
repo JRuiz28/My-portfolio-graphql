@@ -1,0 +1,76 @@
+.form-item--radios,
+.form-item--radio__item {
+  @include list-reset;
+}
+
+.form-item--radio {
+  border: none;
+
+  legend {
+    font-weight: 900;
+    color: clr(black);
+    font-size: px2rem(14);
+    margin-bottom: $space-8;
+  }
+}
+
+.form-item--radio__item {
+  margin-bottom: $space-24;
+
+  label {
+    cursor: pointer;
+
+    input[type="radio"] {
+      display: none;
+
+      & + span {
+        cursor: pointer;
+        font-weight: 400;
+        position: relative;
+        color: clr(black);
+        font-size: px2rem(14);
+        display: inline-block;
+        line-height: px2rem(24);
+        padding-left: px2rem(36);
+      }
+
+      // Radio.
+      & + span::before {
+        content: '';
+        top: 0;
+        left: 0;
+        width: px2rem(24);
+        height: px2rem(24);
+        position: absolute;
+        border-radius: 100%;
+        border: 1px solid clr(purple-light);
+      }
+
+      // Radio checked.
+      & + span::after {
+        content: '';
+        top: px2rem(7);
+        left: px2rem(7);
+        width: px2rem(10);
+        height: px2rem(10);
+        position: absolute;
+        border-radius: 100%;
+        background: clr(purple-light);
+      }
+
+      // Background radio.
+      &:checked + span::before {
+        background: clr(white);
+        border-color: clr(purple-light);
+      }
+
+      &:not(:checked) + span::after {
+        display: none;
+      }
+
+      &:checked + span::after {
+        display: initial;
+      }
+    }
+  }
+}

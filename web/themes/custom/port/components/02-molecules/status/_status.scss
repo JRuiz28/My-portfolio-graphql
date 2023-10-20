@@ -1,0 +1,27 @@
+.status__list {
+  @include list-reset;
+
+  margin-bottom: $space;
+}
+
+.status {
+  display: block;
+  padding: $space-8;
+  text-align: center;
+  margin-bottom: $space-8;
+
+  &--warning {
+    color: clr(black);
+    background-color: clr(yellow);
+  }
+
+  &--error {
+    color: clr(black);
+    background-color: clr(red);
+  }
+
+  &--status {
+    color: clr(black);
+    background-color: clr(green);
+  }
+}

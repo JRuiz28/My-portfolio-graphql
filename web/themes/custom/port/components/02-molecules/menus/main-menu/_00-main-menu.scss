@@ -1,0 +1,25 @@
+
+/* Wrapper */
+.main-nav {
+  display: none;
+  overflow-x: hidden;
+
+  @include menu-md {
+    display: flex;
+    overflow-x: visible;
+  }
+}
+
+/* Main menu */
+.main-menu {
+  @include list-reset;
+
+  @include menu-md {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: flex-end;
+  }
+}
+
+

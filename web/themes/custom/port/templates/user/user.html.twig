@@ -1,0 +1,50 @@
+{#
+File: port/templates/user/user.html.twig
+
+Available Variables:
+- {{ user }}: The current user entity being represented.
+- {{ content }}: The representation of user profile fields and elements.
+- {{ user_has_job_content }}: Get bool if user has job content type.
+- {{ user_has_project_content }}: Get bool if user has project content type.
+- {{ user_has_education_content }}: Get bool if user has education content type.
+
+Structure and Layout:
+- User profile page consists of a main column with user information and a
+  sidebar column with additional actions and details.
+- The primary user information is contained within {{ content }}.
+
+Customization:
+- You can customize the representation of user fields by adding or modifying
+  elements within {{ content }}.
+- To change layout or styles, adjust CSS in your theme.
+
+Author:
+- Author: Josue Ruiz
+
+#}
+
+{% set has_addres = (user.field_address.value == []) ? FALSE : TRUE %}
+{% set has_phone = (user.field_phone_number.value == []) ? FALSE : TRUE %}
+{% set has_photo = (user.user_picture.value == []) ? FALSE : TRUE %}
+{% set has_summary = (user.field_description.summary == null) ? FALSE : TRUE %}
+{% set has_description = (user.field_description.value == []) ? FALSE : TRUE %}
+{% set has_resumen = (user.field_resume.value == []) ? FALSE : TRUE %}
+{% set has_testimonials = (user.field_testimonial_three_items.value == []) ? FALSE : TRUE %}
+{% set has_job = user_has_job_content %}
+{% set has_project = user_has_project_content %}
+{% set has_education = user_has_education_content %}
+
+{% include '@molecules/card-console/card-console.twig' with {
+    card_console__username: user.label,
+    card_console__has_phone: has_phone,
+    card_console__has_addres: has_addres,
+    card_console__has_photo: has_photo,
+    card_console__has_summary: has_summary,
+    card_console__has_description: has_description,
+    card_console__has_resumen: has_resumen,
+    card_console__has_testimonials: has_testimonials,
+    card_console__has_job: has_job,
+    card_console__has_project: has_project,
+    card_console__has_education: has_education,
+    card_console__endpoint: endpoint,
+} %}

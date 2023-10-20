@@ -1,0 +1,118 @@
+.form-item__wrapper {
+  display: flex;
+
+  input {
+    border: none;
+  }
+}
+
+.form-item {
+  @include clearfix;
+
+  max-width: 100%;
+  color: clr(black);
+  margin-bottom: $space-24;
+
+  .form-item--error-message {
+    display: block;
+    font-weight: 400;
+    margin-top: $space-4;
+    font-size: px2rem(12);
+
+    a {
+      color: clr(purple);
+    }
+  }
+}
+
+input.form-item__textfield {
+  height: px2rem(40);
+}
+
+input.form-item__textfield,
+textarea.form-item__textarea {
+  width: 100%;
+  font-weight: 500;
+  color: clr(black);
+  padding: 0 $space-12;
+  font-size: px2rem(14);
+  border-radius: px2rem(12);
+  border: 1.5px solid clr(purple-light);
+
+  &:focus {
+    outline: none;
+    border-color: clr(blue-lighter);
+  }
+
+  &::placeholder {
+    color: clr(gray);
+  }
+
+  & + .form-item__error {
+    width: $space-12;
+    height: $space-40;
+    pointer-events: none;
+    margin: 0 0 0 px2rem(-22);
+  }
+
+  &.error {
+    border-color: clr(red);
+  }
+}
+
+.form-item__description {
+  font-weight: 400;
+  color: clr(gray);
+  font-style: italic;
+  margin-top: $space-4;
+  font-size: px2rem(12);
+}
+
+fieldset {
+  padding: 0;
+}
+
+.form-fieldset legend,
+.form-item__label:not(.option) {
+  padding: 0;
+  display: block;
+  font-weight: 700;
+  font-size: px2rem(14);
+}
+
+.form-fieldset {
+  padding: 0;
+  border: none;
+
+  .form-item {
+    max-width: 100%;
+  }
+}
+
+input[name="field_id"],
+input[name="field_saving_amount"] {
+  max-width: 70%;
+}
+
+input[type="file"] {
+  border: none;
+}
+
+input[name="phone"] {
+  max-width: 50%;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea.form-item__textarea {
+  padding-top: 10px;
+  border-radius: 20px;
+  height: px2rem(120px);
+}
+
+.form-wrapper .paragraphs-dropdown-action.button {
+  display: block;
+  padding: 2px;
+}

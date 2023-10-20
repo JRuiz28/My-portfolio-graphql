@@ -1,0 +1,16 @@
+title: Nav
+menu_items:
+  - title: 'About us'
+    in_active_trail: true
+    below:
+      - title: 'Other'
+        url: '#'
+  - title: 'Company'
+    url: '#'
+    below:
+      - title: 'Benefits'
+        url: '#'
+      - title: 'Career'
+        url: '#'
+      - title: 'Technology'
+        url: '#'

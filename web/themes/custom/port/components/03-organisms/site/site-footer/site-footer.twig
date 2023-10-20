@@ -1,0 +1,16 @@
+{% set footer__base_class = 'site-footer' %}
+
+<footer {{ bem(footer__base_class) }}>
+  <div {{ bem('inner', [], footer__base_class) }}>
+    {# Branding #}
+    {% block footer %}
+      {# Menu #}
+      <div {{ bem('menu', [], footer__base_class) }}>
+        {% block footer__menu %}
+          {% include "@molecules/menus/inline/inline-menu.twig" %}
+        {% endblock %}
+      </div>
+      {# Social media #}
+    {% endblock %}
+  </div>
+</footer>

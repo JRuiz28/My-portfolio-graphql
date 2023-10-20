@@ -1,0 +1,16 @@
+.site-footer {
+  padding: $space-72 $space-12;
+  background-color: clr(gray);
+
+  &__inner {
+    @include wrapper;
+  }
+}
+
+.inline-menu__link {
+  color: clr(white);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

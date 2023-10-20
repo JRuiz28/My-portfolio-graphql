@@ -1,0 +1,56 @@
+/*
+ * General Layout
+*/
+
+$sidebar-width: 33%;
+$gutter: $space;
+$main-width: calc(100% - (#{$sidebar-width} + #{$gutter}));
+
+/*
+ * Layout Using Flexbox (IE11+).
+ * Remove this and uncomment Grid code below to use CSS Grid.
+*/
+
+.main {
+  @include wrapper;
+}
+
+.main,
+.main-full-width {
+  flex: 1;
+
+  @include large {
+    display: flex;
+  }
+}
+
+// Landing page content region block.
+.main-full-width {
+  .block--content-region {
+    @include wrapper;
+
+    margin-bottom: $space;
+  }
+}
+
+.main-sidebar {
+  margin-bottom: $space-32;
+
+  @include large {
+    order: 2;
+    margin-bottom: 0;
+    width: $sidebar-width;
+  }
+}
+
+.main-content {
+  width: 100%;
+  position: relative;
+
+  @include large {
+    &--with-sidebar {
+      width: $main-width;
+      margin-right: $gutter;
+    }
+  }
+}

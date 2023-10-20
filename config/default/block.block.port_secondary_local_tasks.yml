@@ -1,0 +1,22 @@
+uuid: 5ed03949-d55c-4a69-ad5b-6779ca24ba16
+langcode: en
+status: true
+dependencies:
+  theme:
+    - port
+_core:
+  default_config_hash: BCWhood0xXFQYqxFgL1spXdb9KeIuXH1YvTdjIEedDg
+id: port_secondary_local_tasks
+theme: port
+region: header_top
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

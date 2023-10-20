@@ -1,0 +1,22 @@
+{#
+  # Available variables:
+  # - title__base_class - base classname of the wrapper.
+  # - title__modifiers - modifiers.
+  # - title__text - the content of the heading.
+  # - title__heading_level - the heading level (h1, h2, h3).
+#}
+
+{% set title__base_class = 'title-component' %}
+
+<div {{ bem(title__base_class, title__modifiers) }} {{ attributes }}>
+  {{ title_prefix }}
+  {% if title__text %}
+    {% include "@atoms/text/headings/_heading.twig" with {
+        heading_base_class: 'heading',
+        heading_blockname: title__base_class,
+        heading_level: title__heading_level,
+        heading: title__text,
+      } %}
+  {% endif %}
+  {{ title_suffix }}
+</div>

@@ -1,0 +1,8 @@
+card__image_src: 'https://placekitten.com/1280/780'
+card__image_alt: "This is the card image's alt text"
+card__has_image: true
+card__image_output_image_tag: true
+card__heading: 'Heading'
+card__heading_level: 'h2'
+card__heading_link: '#'
+card__body: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo libero velit non mollis.</p>'

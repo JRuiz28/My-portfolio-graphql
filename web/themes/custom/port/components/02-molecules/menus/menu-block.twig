@@ -1,0 +1,14 @@
+{% set menu_block__base_class = 'block-menu' %}
+{% set title_extra_classes = menu_block__show_title ? [] : ['visually-hidden'] %}
+{% set heading_id = menu_block__id ~ '-menu'|clean_id %}
+
+<nav aria-labelledby="{{ heading_id }}" {{ bem(menu_block__base_class, menu_block__modifiers|default([])) }} {{ attributes|without('class', 'role', 'aria-labelledby', 'id') }}>
+  {{ title_prefix }}
+  <h2 id="{{ heading_id }}" {{ bem('title', [], menu_block__base_class, title_extra_classes) }} {{ title_attributes|without('id', 'class') }}>
+    {{ menu_block__title }}
+  </h2>
+  {{ title_suffix }}
+  {% block menu %}
+    {{ content }}
+  {% endblock %}
+</nav>

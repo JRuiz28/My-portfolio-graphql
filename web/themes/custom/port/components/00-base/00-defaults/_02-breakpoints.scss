@@ -12,7 +12,7 @@
 
 $small: 30em; // 480px
 $medium: 45em; // 720px
-$menu-medium: 48.0625em; // 769px
+$menu-md: 48.0625em; // 769px
 $large: 57.5em; // 920px
 $xl: 76.5em; // 1224px
 
@@ -36,10 +36,10 @@ $max-width: $xl;
   }
 }
 
-/// Mixin - menu-medium Breakpoint
-/// Allows easier @include menu-medium {} syntax
-@mixin menu-medium {
-  @include breakpoint($menu-medium) {
+/// Mixin - menu-md Breakpoint
+/// Allows easier @include menu-md {} syntax
+@mixin menu-md {
+  @include breakpoint($menu-md) {
     @content;
   }
 }

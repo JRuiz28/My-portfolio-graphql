@@ -1,0 +1,14 @@
+
+{% set header__base_class = 'site-header' %}
+
+<header {{ bem(header__base_class) }}>
+  <div {{ bem('container', [], header__base_class) }}>
+    <div {{ bem('inner', [], header__base_class) }}>
+      <div {{ bem('main', [], header__base_class) }}>
+        {% block header %}
+          {% include '@molecules/menus/main-menu/main-menu.twig' with mainMenu %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,14 @@
+card_console__username: 'Test'
+card_console__has_phone: true
+card_console__has_addres: true
+card_console__has_photo: true
+card_console__has_summary: false
+card_console__has_description: false
+card_console__has_resumen: false
+card_console__has_testimonials: false
+# Content types.
+card_console__has_job: false
+card_console__has_project: false
+card_console__has_education: false
+# Endpoint
+card_console__endpoint: 'text/grapgql'

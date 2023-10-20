@@ -1,0 +1,34 @@
+.title-component {
+  h1 {
+    @include heading-xl;
+  }
+
+  h2 {
+    @include heading-lg;
+  }
+
+  h3 {
+    @include heading-md;
+  }
+}
+
+.title-component__heading {
+  margin: 0;
+}
+
+/* Variations */
+
+/* Layout colors */
+.layout--background-blue,
+.layout--background-light-blue,
+.layout--background-purple {
+  .title-component {
+    color: clr(white);
+  }
+  /* Layout builder Admin */
+  .layout-builder__region {
+    .title-component {
+      color: clr(text);
+    }
+  }
+}

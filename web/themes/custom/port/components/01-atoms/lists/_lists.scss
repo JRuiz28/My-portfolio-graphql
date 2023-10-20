@@ -1,0 +1,33 @@
+ul,
+ol {
+  padding-left: 1em;
+}
+
+ul {
+  list-style-type: disc;
+
+  li::marker {
+    color: clr(black);
+  }
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+.list-item {
+  margin-bottom: 0.2em;
+  padding-left: 1em;
+}
+
+.text-long {
+
+  ol,
+  ul {
+    list-style-position: inside;
+
+    li {
+      @extend .list-item;
+    }
+  }
+}

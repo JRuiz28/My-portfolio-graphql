@@ -1,0 +1,300 @@
+// Styles for section layouts.
+@mixin section-layout-breakpoint {
+  @include breakpoint($large) {
+    @content;
+  }
+}
+
+// Landing page nodes should have overflow: hidden;
+.node--landing-page.node--full {
+  overflow: hidden;
+}
+
+// General styles.
+.layout__content {
+  position: relative;
+
+  > div,
+  > article,
+  > section {
+    position: relative;
+  }
+}
+
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-x: hidden; //https://css-tricks.com/full-bleed/
+}
+
+// Separate blocks inside a section, doesn't apply to the design view
+:not(.layout-builder__section) {
+  // For blocks inside a one column section.
+  .layout--onecol .layout__content > div:not(:last-of-type) {
+    margin-bottom: $space-24;
+
+    @include large {
+      margin-bottom: $space-40;
+    }
+  }
+
+  // For blocks inside a two or three column section.
+  .layout--twocol,
+  .layout--threecol {
+    .layout__column > div:not(:last-of-type) {
+      margin-bottom: $space-24;
+
+      @include large {
+        margin-bottom: $space-40;
+      }
+    }
+  }
+}
+
+// Full width variant
+.layout:not(.layout--fixed-width) {
+  .layout__content {
+    @include wrapper;
+  }
+}
+
+// Fixed width variant.
+.layout--fixed-width {
+  @include wrapper;
+}
+
+// Background-colors.
+.layout--background-white {
+  background-color: clr(white);
+
+  &.layout--border-top {
+    border-top: 1px solid clr(blue-lightest);
+  }
+}
+
+.layout--background-gray {
+  background-color: clr(gray-lightest);
+
+  &.layout--border-top {
+    border-top: 1px solid clr(gray-lighter);
+  }
+}
+
+.layout--background-blue {
+  background-color: clr(blue);
+
+  &.layout--border-top {
+    border-top: 1px solid clr(blue-lightest);
+  }
+}
+
+.layout--background-purple {
+  background-color: clr(purple);
+
+  &.layout--border-top {
+    border-top: 1px solid clr(blue-lightest);
+  }
+}
+
+.layout--background-light-blue {
+  background-color: clr(blue-light);
+
+  &.layout--border-top {
+    border-top: 1px solid clr(blue-lightest);
+  }
+}
+
+.layout--background-light-blue-light {
+  background-color: clr(blue-lightest);
+
+  &.layout--border-top {
+    border-top: 1px solid clr(gray-lighter);
+  }
+}
+
+.layout--background-light-yellow {
+  background-color: clr(yellow-light);
+
+  &.layout--border-top {
+    border-top: 1px solid clr(gray-lighter);
+  }
+}
+
+// Background-decoration.
+.layout--background-decoration {
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+}
+
+// Top/bottom spacing.
+.layout--spacing-top-large {
+  padding-top: $space-64;
+  @include medium {
+    padding-top: $space-72;
+  }
+}
+
+.layout--spacing-top-medium {
+  padding-top: $space-48;
+  @include medium {
+    padding-top: $space-56;
+  }
+}
+
+.layout--spacing-top-small {
+  padding-top: $space-24;
+  @include medium {
+    padding-top: $space-32;
+  }
+}
+
+.layout--spacing-bottom-large {
+  padding-bottom: $space-64;
+  @include medium {
+    padding-bottom: $space-72;
+  }
+}
+
+.layout--spacing-bottom-medium {
+  padding-bottom: $space-48;
+  @include medium {
+    padding-bottom: $space-56;
+  }
+}
+
+.layout--spacing-bottom-small {
+  padding-bottom: $space-24;
+  @include medium {
+    padding-bottom: $space-32;
+  }
+}
+
+// General styles for multi-column variants.
+.layout--twocol,
+.layout--threecol {
+  .layout__content {
+    @include section-layout-breakpoint {
+      display: flex;
+    }
+  }
+}
+
+// Layout column general styles.
+.layout__column {
+  margin-bottom: 1.25rem;
+  @include section-layout-breakpoint {
+    margin-bottom: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Two column variant.
+.layout--twocol-50-50 {
+  .layout__column {
+    flex: 0 1 50%;
+  }
+}
+
+.layout--twocol-30-70 {
+  .layout__column--first {
+    flex: 0 1 30%;
+  }
+
+  .layout__column--second {
+    flex: 0 1 70%;
+  }
+}
+
+.layout--twocol-70-30 {
+  .layout__column--first {
+    flex: 0 1 70%;
+  }
+
+  .layout__column--second {
+    flex: 0 1 30%;
+  }
+}
+
+.layout--twocol-40-60 {
+  .layout__column--first {
+    flex: 0 1 40%;
+  }
+
+  .layout__column--second {
+    flex: 0 1 60%;
+  }
+}
+
+.layout--twocol-60-40 {
+  .layout__column--first {
+    flex: 0 1 60%;
+  }
+
+  .layout__column--second {
+    flex: 0 1 40%;
+  }
+}
+
+// Three column variant.
+.layout--threecol {
+  .layout__column {
+    flex: 0 1 33%;
+  }
+}
+
+// Space between columns.
+.layout--spacing-cols-small,
+.layout--spacing-cols-medium,
+.layout--spacing-cols-large {
+  .layout__column {
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.layout--spacing-cols-small {
+  .layout__column {
+    @include section-layout-breakpoint {
+      margin: 0 $space-12;
+    }
+  }
+}
+
+.layout--spacing-cols-medium {
+  .layout__column {
+    @include section-layout-breakpoint {
+      margin: 0 $space-24;
+    }
+  }
+}
+
+.layout--spacing-cols-large {
+  .layout__column {
+    @include section-layout-breakpoint {
+      margin: 0 $space-32;
+    }
+  }
+}
+
+// Make column content equal height (for two and three column variants).
+.layout--content-equal-height {
+  .layout__column {
+    > div,
+    > article,
+    > section {
+      &:first-child:last-child {
+        height: 100%;
+      }
+    }
+  }
+}

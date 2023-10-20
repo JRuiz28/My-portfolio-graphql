@@ -1,0 +1,14 @@
+
+.logo-link {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.site-header__inner {
+  @include wrapper;
+}
+
+.site-header__main {
+  padding: $space 0;
+}

@@ -1,0 +1,190 @@
+// Forms.
+.user-pass,
+.user-login-form,
+.webform-submission-form {
+
+  > p {
+    max-width: 32em;
+    font-weight: 400;
+    margin: 0 0 $space-24;
+    font-size: px2rem(14);
+  }
+
+  .webform-elements {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    > .form-item:first-child {
+
+      h2 {
+        margin-top: 0;
+      }
+    }
+
+    @include medium {
+      width: 80%;
+    }
+  }
+}
+
+// Inputs.
+.form-item--textarea:not(.form-submit) {
+  flex: 100%;
+  margin-bottom: $space-40 !important;
+
+  @include medium {
+    flex: 0 1 calc(50% - 24px);
+  }
+}
+
+.form-item--checkbox {
+  width: 100%;
+  display: flex;
+}
+
+.checkboxes--wrapper {
+  width: 100%;
+  display: flex;
+  margin-bottom: 0 !important;
+  flex-direction: column;
+}
+
+.form-item--webform-markup h2 {
+  color: clr(pink-dark);
+  margin-top: $space-48;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: px2rem(14);
+}
+
+#edit-volunteer-hours, #edit-week-hours, #edit-conditional-donation-amount {
+  width: 25%;
+}
+
+#edit-age, #edit-job, #edit-career, #edit-university, #edit-signature {
+  width: 50%;
+}
+
+#edit-letter-interest-upload {
+  border: none;
+  border-radius: 0%;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.radios--wrapper {
+  width: 100%;
+  display: flex;
+  margin-bottom: 0 !important;
+  flex-direction: column;
+
+  .webform-element-description {
+    font-weight: 400;
+    color: clr(gray-dark);
+    font-style: italic;
+    margin-top: .25rem;
+    font-size: .75rem;
+    margin-bottom: 2.5rem
+  }
+}
+
+.form-item--radios {
+  margin-top: 0.5rem !important;
+}
+
+.form-item .form-item--radio {
+  width: 100%;
+  display: flex;
+  margin-bottom: 0;
+  padding-bottom: 0;
+
+  input {
+    margin: 0.1rem $space-8 1.3rem 0.1rem;
+  }
+}
+
+.form-item--tel {
+  max-width: 50%;
+}
+
+.form-item--email,
+.form-item--number,
+.form-item--select,
+.form-item--textfield,
+.webform-select-other {
+  flex: 0 1 100%;
+  margin-left: 0;
+
+  .form-item {
+    margin-right: 0 !important;
+    margin-bottom: 0;
+  }
+
+  @include medium {
+    flex: 0 1 calc(50% - 16px);
+    margin-right: 0;
+  }
+}
+// IE11 adaptation for selects
+select::-ms-expand{
+  display: none;
+}
+
+// Subtitles.
+div.form-item--processed-text {
+  margin: 0;
+  flex: 100%;
+
+  > h2, > p {
+    font-weight: 700;
+    color: clr(pink-dark);
+    margin-top: $space;
+    font-size: px2rem(18);
+    margin-bottom: $space-12;
+  }
+}
+
+// Submit.
+.webform-button--submit {
+  background-color: clr(gray-btn);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 35% 30%;
+  padding-right: 2.5rem;
+}
+
+.form-item--submit {
+  position: relative;
+  font-weight: 700;
+  border-radius: px2rem(50);
+  font-size: px2rem(14);
+  margin: 0 0 $space-24 0;
+}
+
+// Captcha.
+.captcha {
+  flex: 100%;
+  margin: $space-24 0;
+}
+
+#edit-text-captcha-help,
+#edit-text-recaptcha-help {
+  margin-bottom: 0;
+
+  p:nth-child(1) {
+    display: none;
+  }
+
+  p:nth-child(2) {
+    font-weight: 400;
+    color: clr(gray-text);
+    font-size: px2rem(14);
+    margin: $space 0 $space-8;
+  }
+
+  & + .captcha {
+    margin-top: 0;
+  }
+}

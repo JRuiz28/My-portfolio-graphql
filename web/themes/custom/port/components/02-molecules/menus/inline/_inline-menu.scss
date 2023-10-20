@@ -1,0 +1,24 @@
+.inline-menu {
+  @include list-reset;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.inline-menu__item {
+  @include menu-md {
+    display: block;
+    margin-bottom: 1em;
+  }
+}
+
+.inline-menu__link {
+  @include link;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+}

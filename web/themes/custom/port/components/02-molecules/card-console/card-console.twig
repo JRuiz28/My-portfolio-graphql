@@ -1,0 +1,103 @@
+{#
+  # Available variables:
+  # - card_console__base_class - base classname of the wrapper.
+  # - card_console__title - the content of the heading.
+  # - card_console__description - the content of the header body.
+#}
+
+{% set card_console__base_class = 'card-console' %}
+
+<main class="container-console">
+  <article>
+    <h3>Endpoint:</h3>
+    <div {{ bem('container', [], 'url') }}>
+      {{ card_console__endpoint }}
+    </div>
+  </article>
+
+  <article>
+    <h3>Query:</h3>
+    <div {{ bem(card_console__base_class) }} {{ attributes }}>
+      <div {{ bem('tool', [], card_console__base_class) }}>
+        <div {{ bem('circle', [], card_console__base_class) }}>
+          <span {{ bem('red', [], card_console__base_class) }}></span>
+        </div>
+        <div {{ bem('circle', [], card_console__base_class) }}>
+          <span {{ bem('yellow', [], card_console__base_class) }}></span>
+        </div>
+        <div {{ bem('circle', [], card_console__base_class) }}>
+          <span {{ bem('green', [], card_console__base_class) }}></span>
+        </div>
+      </div>
+      <div {{ bem('content', [], card_console__base_class) }}>
+      <pre {{ bem('code', [], card_console__base_class) }}>
+        <span class='code-red-light'>query</span> <span class='code-red'>MyQuery</span> {
+          routeUser(<span class='code-purple'>username:</span> <span class='code-yellow'>"{{card_console__username}}"</span>) {
+            ... <span class='code-red-light'>on</span> <span class='code-yellow'>User</span> {
+              name
+              lastname
+              email
+              {% if card_console__has_summary %}summary
+              {% endif %}{% if card_console__has_description %}aboutme
+              {% endif %}{% if card_console__has_phone %}phone
+              {% endif %}{% if card_console__has_photo %}photo {
+                fileURL
+              } {% endif %}{% if card_console__has_resumen %}<br>
+              resume {
+                fileURL
+              }{% endif %}{% if card_console__has_addres %}<br>
+              location {
+                label
+                children {
+                  label
+                }
+              }{% endif %}{% if card_console__has_testimonials %}<br>
+              testimonial {
+                name
+                subtitle
+                testimonial
+                photo {
+                  fileURL
+                }
+              }{% endif %}{% if card_console__has_project %}<br>
+              projects {
+                title
+                subtitle
+                description
+                image {
+                  fileURL
+                }
+                links {
+                  linkTitle
+                  linkURL
+                }
+                technology {
+                  label
+                }
+              }{% endif %}{% if card_console__has_education %}<br>
+              educations {
+                title
+                description
+                institution
+                specialization {
+                  label
+                }
+                startDate
+                endDate
+              }{% endif %}{% if card_console__has_job %}<br>
+              jobs {
+                title
+                companyName
+                description
+                currently
+                startDate
+                endDate
+              }{% endif %}<br>
+            }
+          }
+        }
+      </pre>
+      </div>
+    </div>
+  </article>
+</main>

@@ -3,11 +3,11 @@ html {
 }
 
 body {
-  background-color: clr(white);
-  color: clr(text);
-  font-family: $font-body;
   font-size: 1rem;
+  color: clr(text);
   line-height: 1.3em;
+  font-family: $font-body;
+  background-color: clr(gray-lightest);
 }
 
 *,
@@ -20,32 +20,13 @@ body {
   display: block; /* Fix for IE weirdness */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   @include break-word;
 
-  font-family: $font-heading;
   line-height: 1.3em;
+  font-family: $font-heading;
 }
 
 .visually-hidden {
   @include visually-hidden;
-}
-
-// Tab navigation.
-@supports (contain: none) {
-  *:focus-visible {
-    outline: 4px solid clr(black) !important;
-  }
-}
-
-/* Safari & IE11 */
-@supports not (contain: none) {
-  *:focus {
-    outline: 4px solid clr(black) !important;
-  }
 }
